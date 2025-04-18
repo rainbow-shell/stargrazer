@@ -9,13 +9,11 @@ This file provides guidance when working with code in this repository.
 - Extract LinkedIn info: `python linkedin_extractor.py <json_file> [output_file]`
 - Run a specific batch: `python stargazer_enricher.py <repo_url> --batch-size <size> --batch-number <num>`
 - Merge batch files: `python stargazer_enricher.py <repo_url> --merge-files`
-- Enrich with OpenAI: `python openai_linkedin_enricher.py <json_file> [--limit N]`
 
 ## Dependencies
 
 - Python 3.6+
 - requests
-- OpenAI API key (for OpenAI enricher)
 
 ## Code Style
 
@@ -49,4 +47,3 @@ The enriched stargazer data structure includes:
 - avatar_url: Profile picture URL
 - html_url: GitHub profile URL
 - linkedin_url: LinkedIn URL if found in profile
-- linkedin_url_openai: LinkedIn URL found by OpenAI (if using the OpenAI enricher)
