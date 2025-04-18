@@ -9,33 +9,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Extract LinkedIn info: `python linkedin_extractor.py <json_file> [output_file]`
 - Run a specific batch: `python stargazer_enricher.py <repo_url> --batch-size <size> --batch-number <num>`
 - Merge batch files: `python stargazer_enricher.py <repo_url> --merge-files`
-- Search LinkedIn profiles: `python linkedin_searcher.py <csv_file> --manual-login [--output output.csv] [--limit N]`
+- Enrich with OpenAI: `python openai_linkedin_enricher.py <json_file> [--limit N]`
 
 ## Dependencies
 
 - Python 3.6+
 - requests
-- playwright (for LinkedIn searcher): `pip install playwright && playwright install`
-
-## LinkedIn Searcher Workflow
-
-The LinkedIn searcher workflow is:
-1. Run the script on a CSV file containing stargazer data
-2. Use the `--manual-login` option for reliable authentication
-3. Browser window opens and waits for user to log in manually
-4. After login, user types 'done' in terminal to continue
-5. Script processes each record to find LinkedIn profiles
-6. Results saved to new CSV with original data + LinkedIn fields
-
-Example for running LinkedIn searcher:
-```bash
-python linkedin_searcher.py stargazers_merged_20250417_114816.csv --manual-login --limit 10
-```
-
-The LinkedIn searcher adds these fields to the CSV:
-- `linkedin_url_guess`: The LinkedIn profile URL found by the script
-- `linkedin_profile_text`: Text extracted from the profile "About" section
-- `linkedin_connection_degree`: Connection degree (1st, 2nd, 3rd) between profiles
+- OpenAI API key (for OpenAI enricher)
 
 ## Code Style
 
@@ -69,6 +49,4 @@ The enriched stargazer data structure includes:
 - avatar_url: Profile picture URL
 - html_url: GitHub profile URL
 - linkedin_url: LinkedIn URL if found in profile
-- linkedin_url_guess: LinkedIn URL found by the searcher
-- linkedin_profile_text: Text from LinkedIn profile
-- linkedin_connection_degree: Connection level (1st, 2nd, etc.)
+- linkedin_url_openai: LinkedIn URL found by OpenAI (if using the OpenAI enricher)
