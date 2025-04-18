@@ -177,3 +177,7 @@ The enriched dataset contains the following information for each stargazer:
 - `json_to_csv.py`: Converts JSON data to CSV format for Excel
 - `linkedin_extractor.py`: Extracts LinkedIn URLs from user profiles
 - `openai_linkedin_enricher.py`: Uses OpenAI API to find LinkedIn URLs (requires API key)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
